@@ -2,15 +2,15 @@
 
 App::uses('Component', 'Controller');
 
-class ProductComponent extends Component
+class ProductManagerComponent extends Component
 {
-	
-	
+
+
     public function getProductsWithCategory($category = '')
     {
     	$products = array();
-    
-    
+
+
 		$products = array(
 			'John',
 			'Blum',
@@ -18,7 +18,7 @@ class ProductComponent extends Component
 			'A',
 			'Popsicle'
 		);
-    
+
         return $products;
     }
 }
