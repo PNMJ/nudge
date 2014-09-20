@@ -40,7 +40,7 @@ App::uses('CakeEventManager', 'Event');
  * `$this->response` allows you to manipulate all aspects of the response.
  *
  * Controllers are created by Dispatcher based on request parameters and routing. By default controllers and actions
- * use conventional names. For example `/posts/index` maps to `PostsController.php::index()`. You can re-map URLs
+ * use conventional names. For example `/posts/index` maps to `PostsController::index()`. You can re-map URLs
  * using Router::connect().
  *
  * @package       Cake.Controller

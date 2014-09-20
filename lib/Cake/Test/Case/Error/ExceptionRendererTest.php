@@ -227,7 +227,7 @@ class ExceptionRendererTest extends CakeTestCase {
 	public function testSubclassConvertingFrameworkErrors() {
 		Configure::write('debug', 0);
 
-		$exception = new MissingControllerException('PostsController.php');
+		$exception = new MissingControllerException('PostsController');
 		$ExceptionRenderer = $this->_mockResponse(new MyCustomExceptionRenderer($exception));
 
 		$this->assertEquals('error400', $ExceptionRenderer->method);
@@ -424,7 +424,7 @@ class ExceptionRendererTest extends CakeTestCase {
 		$result = ob_get_clean();
 		$this->assertContains('Custom message', $result);
 
-		$exception = new MissingActionException(array('controller' => 'PostsController.php', 'action' => 'index'));
+		$exception = new MissingActionException(array('controller' => 'PostsController', 'action' => 'index'));
 		$ExceptionRenderer = $this->_mockResponse(new ExceptionRenderer($exception));
 
 		ob_start();
@@ -500,7 +500,7 @@ class ExceptionRendererTest extends CakeTestCase {
  * @return void
  */
 	public function testMissingController() {
-		$exception = new MissingControllerException(array('class' => 'PostsController.php'));
+		$exception = new MissingControllerException(array('class' => 'PostsController'));
 		$ExceptionRenderer = $this->_mockResponse(new ExceptionRenderer($exception));
 
 		ob_start();
@@ -508,7 +508,7 @@ class ExceptionRendererTest extends CakeTestCase {
 		$result = ob_get_clean();
 
 		$this->assertRegExp('/<h2>Missing Controller<\/h2>/', $result);
-		$this->assertRegExp('/<em>PostsController.php<\/em>/', $result);
+		$this->assertRegExp('/<em>PostsController<\/em>/', $result);
 	}
 
 /**
@@ -519,18 +519,18 @@ class ExceptionRendererTest extends CakeTestCase {
 	public static function testProvider() {
 		return array(
 			array(
-				new MissingActionException(array('controller' => 'PostsController.php', 'action' => 'index')),
+				new MissingActionException(array('controller' => 'PostsController', 'action' => 'index')),
 				array(
-					'/<h2>Missing Method in PostsController.php<\/h2>/',
-					'/<em>PostsController.php::<\/em><em>index\(\)<\/em>/'
+					'/<h2>Missing Method in PostsController<\/h2>/',
+					'/<em>PostsController::<\/em><em>index\(\)<\/em>/'
 				),
 				404
 			),
 			array(
-				new PrivateActionException(array('controller' => 'PostsController.php', 'action' => '_secretSauce')),
+				new PrivateActionException(array('controller' => 'PostsController', 'action' => '_secretSauce')),
 				array(
-					'/<h2>Private Method in PostsController.php<\/h2>/',
-					'/<em>PostsController.php::<\/em><em>_secretSauce\(\)<\/em>/'
+					'/<h2>Private Method in PostsController<\/h2>/',
+					'/<em>PostsController::<\/em><em>_secretSauce\(\)<\/em>/'
 				),
 				404
 			),

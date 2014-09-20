@@ -366,10 +366,10 @@ class TestTaskTest extends CakeTestCase {
 		$this->assertEquals('Post', $result);
 
 		$result = $this->Task->getRealClassname('Controller', 'Posts');
-		$this->assertEquals('PostsController.php', $result);
+		$this->assertEquals('PostsController', $result);
 
-		$result = $this->Task->getRealClassname('Controller', 'PostsController.php');
-		$this->assertEquals('PostsController.php', $result);
+		$result = $this->Task->getRealClassname('Controller', 'PostsController');
+		$this->assertEquals('PostsController', $result);
 
 		$result = $this->Task->getRealClassname('Controller', 'AlertTypes');
 		$this->assertEquals('AlertTypesController', $result);
@@ -519,7 +519,7 @@ class TestTaskTest extends CakeTestCase {
  * @return void
  */
 	public function testGenerateConstructor() {
-		$result = $this->Task->generateConstructor('controller', 'PostsController.php', null);
+		$result = $this->Task->generateConstructor('controller', 'PostsController', null);
 		$expected = array('', '', '');
 		$this->assertEquals($expected, $result);
 
@@ -544,9 +544,9 @@ class TestTaskTest extends CakeTestCase {
 		);
 		$this->assertEquals($expected, $result);
 
-		$result = $this->Task->generateUses('controller', 'Controller', 'PostsController.php');
+		$result = $this->Task->generateUses('controller', 'Controller', 'PostsController');
 		$expected = array(
-			array('PostsController.php', 'Controller')
+			array('PostsController', 'Controller')
 		);
 		$this->assertEquals($expected, $result);
 
