@@ -7,5 +7,5 @@ app/[Cc]onfig/database.php
 !empty
 
 .htaccess
-
+desktop.ini
 .idea/workspace.xml
