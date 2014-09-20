@@ -60,12 +60,12 @@ if (!class_exists('AppController', false)) {
 }
 
 /**
- * PostsController class
+ * PostsController.php class
  */
 if (!class_exists('PostsController')) {
 
 /**
- * Class PostsController
+ * Class PostsController.php
  *
  * @package       Cake.Test.Case.TestSuite
  */

@@ -128,7 +128,7 @@ class TestTask extends BakeTask {
  * Completes final steps for generating data to create test case.
  *
  * @param string $type Type of object to bake test case for ie. Model, Controller
- * @param string $className the 'cake name' for the class ie. Posts for the PostsController
+ * @param string $className the 'cake name' for the class ie. Posts for the PostsController.php
  * @return string|bool
  */
 	public function bake($type, $className) {
