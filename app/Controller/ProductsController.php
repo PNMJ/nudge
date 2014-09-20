@@ -12,10 +12,11 @@ class ProductsController extends RestController
 		'ProductManager'
 	);
 
-    function ebay($category = '')
+    function ebay($category = 'cars')
     {
 	    $products = $this->ProductManager->getProductsWithCategory($category);
 
-	    debug($products);
+	    //debug($products);
+		exit;
     }
 }
