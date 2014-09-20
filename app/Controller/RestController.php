@@ -18,6 +18,24 @@ class RestController extends AppController
         ));
     }
 
+	public function add()
+	{
+		$message = 'fail';
+		
+	    if (!empty($this->request->data)) {
+	    
+	    	$this->{$this->modelClass}->create();
+	        if($this->{$this->modelClass}->save($this->request->data)){
+		        $message = 'ok';
+	        }
+	    }
+	    
+	    $this->set(array(
+            'message' => $message,
+            '_serialize' => array('message')
+        ));
+	}
+
     public function view($id)
     {
     	$name = $this->modelKey;
