@@ -8,5 +8,14 @@ App::uses('RestController', 'Controller');
  */
 class ProductsController extends RestController
 {
-    
+	public $components = array(
+		'Product'
+	);
+	
+    function ebay($category = '')
+    {
+	    $products = $this->Product->getProductsWithCategory($category);
+	    
+	    debug($products);
+    }
 }
