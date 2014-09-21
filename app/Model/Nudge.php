@@ -1,13 +1,13 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Suggestion Model
+ * Nudge Model
  *
  * @property User $User
  * @property Product $Product
  * @property Request $Request
  */
-class Suggestion extends AppModel {
+class Nudge extends AppModel {
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

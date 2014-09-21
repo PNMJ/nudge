@@ -13,4 +13,9 @@ class HomeController extends AppController
 
 		// home page
 	}
+	
+	function leaderboard()
+	{
+		// show a leaderboard for all the user's and their reputations
+	}
 }

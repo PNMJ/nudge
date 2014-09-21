@@ -1,7 +1,3 @@
-<link rel = "stylesheet" href = "/css/home.css" />
-
-<?php echo $this->element('sidebar'); ?>
-
 <div id="the-rest">
 	<div id="header">Leaderboards</div>
 	<div id="the-rest-content" style="width:80%">
@@ -19,5 +15,3 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript" src="/js/myRequests.js"></script>

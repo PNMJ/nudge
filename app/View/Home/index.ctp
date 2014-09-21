@@ -1,7 +1,3 @@
-<link rel = "stylesheet" href = "/css/home.css" />
-
-<?php echo $this->element('sidebar'); ?>
-
 <div id="the-rest">
 	<div id="the-rest-content">
 		<div id="slide1" style="margin-left:11%">

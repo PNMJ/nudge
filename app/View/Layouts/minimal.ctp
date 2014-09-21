@@ -8,7 +8,6 @@
 
 		//echo $this->Html->css('cake.generic');
 		echo $this->Html->css('style');
-		echo $this->Html->css('home');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -24,8 +23,7 @@
 </head>
 <body id="index-bg">
 	<?php echo $this->Session->flash(); ?>
-	<?php echo $this->element('sidebar'); ?>
 	<?php echo $this->fetch('content'); ?>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php echo $this->element('sql_dump');?>
 </body>
 </html>

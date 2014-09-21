@@ -1,11 +1,11 @@
 <?php
-App::uses('RequestsQuestion', 'Model');
+App::uses('Nudge', 'Model');
 
 /**
- * RequestsQuestion Test Case
+ * Nudge Test Case
  *
  */
-class RequestsQuestionTest extends CakeTestCase {
+class NudgeTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -13,12 +13,14 @@ class RequestsQuestionTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.requests_question',
-		'app.request',
+		'app.nudge',
 		'app.user',
-		'app.suggestion',
+		'app.request',
 		'app.category',
-		'app.question'
+		'app.suggestion',
+		'app.question',
+		'app.requests_question',
+		'app.product'
 	);
 
 /**
@@ -28,7 +30,7 @@ class RequestsQuestionTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->RequestsQuestion = ClassRegistry::init('RequestsQuestion');
+		$this->Nudge = ClassRegistry::init('Nudge');
 	}
 
 /**
@@ -37,7 +39,7 @@ class RequestsQuestionTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->RequestsQuestion);
+		unset($this->Nudge);
 
 		parent::tearDown();
 	}

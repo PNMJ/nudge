@@ -28,6 +28,8 @@ class UsersController extends RestController
 				$this->Session->setFlash('Your account could not be created. Please, try again.', 'default', array('class' => 'message warning'));
 			}
 		}
+		
+	    $this->layout = 'minimal';
 	}
 	
 	function signin()
@@ -44,6 +46,8 @@ class UsersController extends RestController
 	            );
 	        }
 	    }
+	    
+	    $this->layout = 'minimal';
 	}
 	
 	function logout()

@@ -1,3 +1,5 @@
+<link rel = "stylesheet" href = "/css/index.css" />
+
 <div style="padding-top:7%">
 	<div id = "main">
 		<strong style="font-size:90px">Nudge.</strong> <br />

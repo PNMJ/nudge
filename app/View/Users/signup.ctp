@@ -1,3 +1,5 @@
+<link rel = "stylesheet" href = "/css/index.css" />
+
 <div style="padding-top:7%">
 	<div id = "main">
 		<strong style="font-size:90px">Nudge.</strong> <br />
@@ -13,6 +15,6 @@
 		</button>
 		</form>
 		<br /><br />
-		<a href = "users/signin" style = "font-family: 'Montserrat', sans-serif; color: #ecf0f1; font-size: 14px; text-decoration: none;"> Click here to Sign In </a>
+		<a href="/users/signin" style = "font-family: 'Montserrat', sans-serif; color: #ecf0f1; font-size: 14px; text-decoration: none;"> Click here to Sign In </a>
 	</div>
 </div>

@@ -1,9 +1,9 @@
 <?php
 /**
- * RequestsQuestionFixture
+ * NudgeFixture
  *
  */
-class RequestsQuestionFixture extends CakeTestFixture {
+class NudgeFixture extends CakeTestFixture {
 
 /**
  * Fields
@@ -12,11 +12,9 @@ class RequestsQuestionFixture extends CakeTestFixture {
  */
 	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'primary'),
+		'user_id' => array('type' => 'integer', 'null' => true, 'default' => null, 'unsigned' => false),
+		'product_id' => array('type' => 'integer', 'null' => true, 'default' => null, 'unsigned' => false),
 		'request_id' => array('type' => 'integer', 'null' => true, 'default' => null, 'unsigned' => false),
-		'question_id' => array('type' => 'integer', 'null' => true, 'default' => null, 'unsigned' => false),
-		'answer' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
-		'liked' => array('type' => 'string', 'null' => true, 'default' => '\'none\'', 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
-		'purchased' => array('type' => 'boolean', 'null' => true, 'default' => '0'),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'indexes' => array(
@@ -33,13 +31,11 @@ class RequestsQuestionFixture extends CakeTestFixture {
 	public $records = array(
 		array(
 			'id' => 1,
+			'user_id' => 1,
+			'product_id' => 1,
 			'request_id' => 1,
-			'question_id' => 1,
-			'answer' => 'Lorem ipsum dolor sit amet',
-			'liked' => 'Lorem ipsum dolor sit amet',
-			'purchased' => 1,
-			'created' => '2014-09-21 00:59:07',
-			'modified' => '2014-09-21 00:59:07'
+			'created' => '2014-09-21 00:57:39',
+			'modified' => '2014-09-21 00:57:39'
 		),
 	);
 
