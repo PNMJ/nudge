@@ -30,10 +30,10 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-	Router::mapResources(array(
-		'users', 'categories', 'products', 'questions', 'requests', 'requestsquestions', 'suggestions'
-	));
-	Router::parseExtensions();
+	Router::parseExtensions('json');
+	
+	Router::connect('/api/:controller/:param', array('prefix' => 'api', 'action' => 'view', 'api' => true), array('pass' => array('param')));
+	//Router::connect('/api/:controller/:action/*', array('prefix' => 'api', 'api' => true));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

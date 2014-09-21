@@ -4,7 +4,7 @@ App::uses('AppController', 'Controller');
 
 class RestController extends AppController
 {
-	public function index()
+	public function api_index()
     {
     	$this->{$this->modelClass}->recursive = 0;
     
@@ -18,7 +18,7 @@ class RestController extends AppController
         ));
     }
 
-	public function add()
+	public function api_add()
 	{
 		$message = 'fail';
 		
@@ -36,7 +36,7 @@ class RestController extends AppController
         ));
 	}
 
-    public function view($id)
+    public function api_view($id)
     {
     	$name = $this->modelKey;
     
@@ -49,7 +49,7 @@ class RestController extends AppController
         ));
     }
 
-    public function edit($id)
+    public function api_edit($id)
     {
         $this->{$this->modelClass}->id = $id;
         if ($this->{$this->modelClass}->save($this->request->data)) {
