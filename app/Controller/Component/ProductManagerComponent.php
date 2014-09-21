@@ -11,14 +11,14 @@ class ProductManagerComponent extends Component
 		$url = "http://open.api.ebay.com/shopping?";
 		$maxents = 20;
 		$appid = self::APPID;
-		
+
 		//nabbed from the tut
 		$endpoint = 'http://svcs.ebay.com/services/search/FindingService/v1';
 		$version = '1.0.0';
 		$globalid = 'EBAY-US';
 		$query = $category;
 		$safequery = urlencode($query);
-		
+
 		$apicall = "$endpoint?";
 		$apicall .= "OPERATION-NAME=findItemsByKeywords";
 		$apicall .= "&SERVICE-VERSION=$version";
@@ -26,25 +26,29 @@ class ProductManagerComponent extends Component
 		$apicall .= "&GLOBAL-ID=$globalid";
 		$apicall .= "&keywords=$safequery";
 		$apicall .= "&paginationInput.entriesPerPage=$maxents";
-		
+
 		$resp = simplexml_load_file($apicall);
 		$results = '';
 		$products = array();
-		
+
 		if(empty($resp->searchResult->item)){
 			return array();
 		}
-		
+
 		foreach($resp->searchResult->item as $item) {
 			$pic   = $item->galleryURL;
 			$link  = $item->viewItemURL;
 			$title = $item->title;
-			
+            $id = $item->itemID;
+
+            $return[] = $item;
 			$products[] = $item;
 			//$results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td></tr>";
 		}
-		
-		return $products;
-	}
+    }
+
+    public function getProductUrl() {
+
+    }
 
 }
