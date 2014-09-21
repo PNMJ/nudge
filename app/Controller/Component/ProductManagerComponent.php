@@ -4,13 +4,13 @@ App::uses('Component', 'Controller');
 
 class ProductManagerComponent extends Component
 {
+	const APPID = 'JohnBlum-7b5c-4253-8e84-43ead7c00efb';
 
-
-    public function getProductsWithCategory($category = 'shirts')
+    public function getProductsWithCategory($category = '')
     {
         $url = "http://open.api.ebay.com/shopping?";
         $maxents = 20;
-        $appid = "JohnBlum-7b5c-4253-8e84-43ead7c00efb";
+        $appid = self::APPID;
 
         //nabbed from the tut
         $endpoint = 'http://svcs.ebay.com/services/search/FindingService/v1';
