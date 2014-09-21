@@ -22,10 +22,13 @@
 	<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 
 </head>
-<body id="index-bg">
+<body id="index-bg" style="margin:0px">
 	<?php echo $this->Session->flash(); ?>
+	<div style="position: fixed; bottom: 4px; right: 16px;">
+	  <img width="300px" src="/img/trail.png">
+	</div>
 	<?php echo $this->element('sidebar'); ?>
 	<?php echo $this->fetch('content'); ?>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php /*echo $this->element('sql_dump'); */?>
 </body>
 </html>
