@@ -6,8 +6,6 @@ class ProductManagerComponent extends Component
 {
 	const APPID = 'JohnBlum-7b5c-4253-8e84-43ead7c00efb';
 
-    public function getProductsWithCategory($category = '')
-
     public function getProductsWithCategory($category = 'shirts')
     {
 		$url = "http://open.api.ebay.com/shopping?";
@@ -41,47 +39,13 @@ class ProductManagerComponent extends Component
 			$pic   = $item->galleryURL;
 			$link  = $item->viewItemURL;
 			$title = $item->title;
+            $id = $item->itemID;
 
+            $return[] = $item;
 			$products[] = $item;
 			//$results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td></tr>";
 		}
-
-		return $products;
-	}
-        $url = "http://open.api.ebay.com/shopping?";
-        $maxents = 20;
-        $appid = "JohnBlum-7b5c-4253-8e84-43ead7c00efb";
-
-        //nabbed from the tut
-        $endpoint = 'http://svcs.ebay.com/services/search/FindingService/v1';
-        $version = '1.0.0';
-        $globalid = 'EBAY-US';
-        $query = $category;
-        $safequery = urlencode($query);
-
-        $apicall = "$endpoint?";
-        $apicall .= "OPERATION-NAME=findItemsByKeywords";
-        $apicall .= "&SERVICE-VERSION=$version";
-        $apicall .= "&SECURITY-APPNAME=$appid";
-        $apicall .= "&GLOBAL-ID=$globalid";
-        $apicall .= "&keywords=$safequery";
-        $apicall .= "&paginationInput.entriesPerPage=$maxents";
-
-        $resp = simplexml_load_file($apicall);
-        $results = '';
-        $return = array();
-
-        foreach($resp->searchResult->item as $item) {
-            $pic   = $item->galleryURL;
-            $link  = $item->viewItemURL;
-            $title = $item->title;
-            $id = $item->itemId;
-
-            $return[] = $item;
-            //$results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td></tr>";
-        }
-        return $return;
-        }
+    }
 
     public function getProductUrl() {
 
