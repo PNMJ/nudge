@@ -2,6 +2,10 @@
 	<div id="header">Nudge</div>
 	<div id="the-rest-content ">
 		<div id="display-choices">
+		
+		<?php if(empty($requests)){ ?>
+			<p>There are no requests to be nudged at this time</p>
+		<?php } else { ?>
 			<p>Please click on a request you want to send a nudge to</p>
 			
 			<?php foreach($requests as $request){ ?>
@@ -18,6 +22,7 @@
 			</a>
 			<?php } ?>
 			<div style="clear:both"></div>
+		<?php } ?>
 	</div>
 		
 <script type="text/javascript" src="/js/nudge.js"></script>

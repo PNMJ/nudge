@@ -38,7 +38,8 @@ class AppController extends Controller
 		'Cookie',
 		'Paginator',
 		//'Security',
-		'RequestHandler'
+		'RequestHandler',
+		'Score'
 	);
 	
 	public $helpers = array(
@@ -52,6 +53,11 @@ class AppController extends Controller
 	public function beforeFilter()
 	{
 	    parent::beforeFilter();
+	    
+	    if ($this->Auth->loggedIn()) {
+	    	$score = $this->Score->getReputationForUser($this->Auth->user('id'));
+		    $this->set('user_reputation', $score);
+		}
 
 		$this->Auth->allow();
 

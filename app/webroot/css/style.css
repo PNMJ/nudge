@@ -1,3 +1,7 @@
+a {
+	outline:none;
+}
+
 /* SQL log */
 .cake-sql-log {
 	background: #fff;

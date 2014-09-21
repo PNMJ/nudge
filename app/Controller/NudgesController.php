@@ -59,12 +59,31 @@ class NudgesController extends RestController
 		}
 	}
 	
+	function opinion($nudge_id = 0, $liked = '')
+	{
+		$nudge = $this->Nudge->read(null, $nudge_id);
+		
+		if($liked == 'like'){
+			$this->Nudge->set('liked', 'yes');
+			$this->Nudge->save();
+		
+		} else if($liked == 'dislike'){
+			$this->Nudge->set('liked', 'no');
+			$this->Nudge->save();
+			
+			
+		} else if($liked == 'buy'){
+			$this->Nudge->set('purchased', 'yes');
+			$this->Nudge->save();
+			
+			$this->redirect($nudge['Product']['referenceURL']);
+		}
+		
+		$this->redirect('/nudges/review/'.$nudge['Request']['id']);
+	}
+	
 	function review($request_id = 0, $liked = '')
 	{
-		if($liked != ''){
-			
-		}
-	
 		// get all nudges for the request
 		$nudges = $this->Nudge->find('all', array(
 			'conditions' => array(

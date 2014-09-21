@@ -24,9 +24,16 @@
 </head>
 <body id="index-bg" style="margin:0px">
 	<?php echo $this->Session->flash(); ?>
-	<div style="position: fixed; bottom: 4px; right: 16px;">
+	<div style="position: fixed; bottom: 4px; right: 16px; opacity: 0.4;">
 	  <img width="300px" src="/img/trail.png">
 	</div>
+	
+	<?php if(isset($user_reputation)){ ?>
+	<div style="position: absolute; color: rgb(246, 246, 246); font-family: Source Sans Pro,sans-serif; right: 15px; font-size: 18px; top: 13px;">
+		Reputation: <?php echo $user_reputation; ?>
+	</div>
+	<?php } ?>
+	
 	<?php echo $this->element('sidebar'); ?>
 	<?php echo $this->fetch('content'); ?>
 	<?php /*echo $this->element('sql_dump'); */?>

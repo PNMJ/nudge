@@ -81,7 +81,7 @@ class RequestsController extends RestController
 	    	// if there exists one that is liked
 	    	$found = false;
 	    	foreach($request['Nudge'] as $nudge){
-		    	if($nudge['liked'] == 'yes' || $nudge['purchased'] == true){
+		    	if($nudge['liked'] == 'yes'){
 			    	$found = true;
 			    	$status[$request['Request']['id']] = 'good';
 		    	}

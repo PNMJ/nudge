@@ -11,7 +11,7 @@
 			<a href="/"><p class="side-text">Home</p></a>
 			<a href="/requests/mine"><p class="side-text">My Requests</p></a>
 			<a href="/nudges/mine"><p class="side-text">My Nudges</p></a>
-			<a href="/leaderboard"><p class="side-text">Leaderboard</p></a>
+			<a href="/leaderboards"><p class="side-text">Leaderboard</p></a>
 			<a href="/users/logout"><p class="side-text">Logout</p></a>
 		</div>
 	</div>

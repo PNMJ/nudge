@@ -15,15 +15,15 @@
 	<h2>Review your nudges</h2>
 	<div id="display-choices">
 			
-	<?php foreach($nudges as $nudge){ debug($nudge);?>
+	<?php foreach($nudges as $nudge){ ?>
 	<div class="reccomendation-option">
 		<img src="<?php echo $nudge['Product']['imageURL']; ?>" title="<?php echo $nudge['Product']['name']; ?>">
 		<p><?php echo $this->Text->truncate($nudge['Product']['name'], 40); ?></p>
 		<br />
 		<div style="text-align:center">
-			<a href="/nudge/review/<?php echo $request['Category']['id']; ?>/like" >Like</a><br />
-			<a href="/nudge/review/<?php echo $request['Category']['id']; ?>/dislike" >Dislike</a><br />
-			<a href="/nudge/review/<?php echo $request['Category']['id']; ?>/buy" >Buy</a><br />
+			<a href="/nudges/opinion/<?php echo $nudge['Nudge']['id']; ?>/like" style="<?php echo ($nudge['Nudge']['liked']=='yes')?'color:#14a9a2':''; ?>">Like</a><br />
+			<a href="/nudges/opinion/<?php echo $nudge['Nudge']['id']; ?>/dislike" style="<?php echo ($nudge['Nudge']['liked']=='no')?'color:#14a9a2':''; ?>">Dislike</a><br />
+			<a href="/nudges/opinion/<?php echo $nudge['Nudge']['id']; ?>/buy" style="<?php echo ($nudge['Nudge']['purchased']==true)?'color:#14a9a2':''; ?>">Buy</a><br />
 		</div>
 	</div>
 	<?php } ?>
