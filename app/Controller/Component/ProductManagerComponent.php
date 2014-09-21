@@ -6,7 +6,7 @@ class ProductManagerComponent extends Component
 {
 	const APPID = 'JohnBlum-7b5c-4253-8e84-43ead7c00efb';
 
-    public function getProductsWithCategory($category = '')
+    public function getProductsWithCategory($category = 'shirts')
     {
 		$url = "http://open.api.ebay.com/shopping?";
 		$maxents = 20;
@@ -30,8 +30,17 @@ class ProductManagerComponent extends Component
 		$resp = simplexml_load_file($apicall);
 		$results = '';
 		$products = array();
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+		
+>>>>>>> FETCH_HEAD
 		if(empty($resp->searchResult->item)){
+=======
+
+		if(!is_array($resp->searchResult->item)){
+>>>>>>> FETCH_HEAD
 			return array();
 		}
 
