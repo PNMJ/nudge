@@ -408,6 +408,7 @@ form .error-message {
 	font-weight: bold;
 	margin: 0 0 1em 0;
 	padding: 5px;
+	position: relative;
 }
 
 .success,
@@ -486,6 +487,7 @@ p.error em {
 	font-size: 120%;
 	padding: 0.8em;
 	margin: 1em 0;
+	position: relative;
 }
 .success {
 	color: #fff;

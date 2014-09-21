@@ -16,8 +16,8 @@ class Product extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Suggestion' => array(
-			'className' => 'Suggestion',
+		'Nudge' => array(
+			'className' => 'Nudge',
 			'foreignKey' => 'product_id',
 			'dependent' => false,
 			'conditions' => '',

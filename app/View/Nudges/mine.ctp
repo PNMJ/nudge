@@ -1,35 +1,30 @@
 <div id="the-rest">
 	<div id="header">My Nudges</div>
 	<div id="the-rest-content">
+		
+		<?php
+			$status = array(
+				'no' => 'bad',
+				'yes' => 'good',
+				'none' => 'neutral',
+			)
+		?>
+		
+		<?php foreach($nudges as $nudge){ ?>
 		<a href="">
 			<div >
-				<div class="bullet-point neutral"></div>
+				<div class="bullet-point <?php echo $status[$nudge['Nudge']['liked']]?>"></div>
 				<div class="request">
-					<h2>Recomendation, not answered</h2>
-					<p>Question 1</p>
-					<p>Question 2</p>
+					<h2><?php echo $nudge['Product']['name'] ?></h2>
+					<p>
+					<?php foreach($nudge['Request']['Question'] as $question){ ?>
+					<?php echo ucfirst($question['question']); ?><br />
+					<?php } ?>
+					</p>
 				</div>
 			</div>
 		</a>
-		<a href="">
-			<div >
-				<div class="bullet-point good"></div>
-				<div class="request">
-					<h2>Recomendation, liked</h2>
-					<p>Question 1</p>
-					<p>Question 2</p>
-				</div>
-			</div>
-		</a>
-		<a href="">
-			<div >
-				<div class="bullet-point bad"></div>
-				<div class="request">
-					<h2>Recomendation, not liked</h2>
-					<p>Question 1</p>
-					<p>Question 2</p>
-				</div>
-			</div>
-		</a>
+		<?php } ?>
+		
 	</div>
 </div>

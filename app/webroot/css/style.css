@@ -87,6 +87,7 @@ p.error {
 	font-size: 120%;
 	padding: 0.8em;
 	margin: 1em 0;
+	position: relative;
 }
 p.error em {
 	font-weight: normal;
@@ -98,7 +99,13 @@ p.error em {
 	font-size: 120%;
 	padding: 0.8em;
 	margin: 1em 0;
+	position: relative;
 }
 .success {
 	color: #fff;
+}
+
+.cake-stack-trace {
+	position: relative;
+	background-color: grey;
 }

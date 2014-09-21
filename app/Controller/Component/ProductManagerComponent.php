@@ -7,14 +7,14 @@ class ProductManagerComponent extends Component
 
     public function getProductsWithCategory($category = '')
     {$url = "http://open.api.ebay.com/shopping?";
-		$maxents = 20;
+		$maxents = 12;
 		$appid = 'JohnBlum-7b5c-4253-8e84-43ead7c00efb';
 
 		//nabbed from the tut
 		$endpoint = 'http://svcs.ebay.com/services/search/FindingService/v1';
 		$version = '1.0.0';
 		$globalid = 'EBAY-US';
-		$query = 'shirts'; //change shirts to categories
+		$query = $category; //change shirts to categories
 		$safequery = urlencode($query);
 
 		$apicall = "$endpoint?";
@@ -32,19 +32,18 @@ class ProductManagerComponent extends Component
 		if(empty($resp->searchResult->item)){
 			return array();
 		}
-		$the_array[] = [];
+		
 		foreach($resp->searchResult->item as $item) {
-			$pic   = $item->galleryURL;
-			$link  = $item->viewItemURL;
-			$title = $item->title;
-            $id = $item->itemID;
-
-			$products[] = $item;
-			$obj = array("pic"=>$pic, 'link'=>$link, 'title'=>$title, 'id'=>$id );
+			$uuid = (string)$item->itemId;
+			$name = (string)$item->title;
+			$description = '';
+			$imageURL   = (string)$item->galleryURL;
+			$referenceURL  = (string)$item->viewItemURL;
 			
-			$the_array[] = $obj;
+			$products[] = compact('uuid', 'name', 'description', 'imageURL', 'referenceURL');
 		}
-		return($the_array);
+		
+		return $products;
     }
 
     public function getProductUrl() {

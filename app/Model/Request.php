@@ -68,8 +68,8 @@ class Request extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Suggestion' => array(
-			'className' => 'Suggestion',
+		'Nudge' => array(
+			'className' => 'Nudge',
 			'foreignKey' => 'request_id',
 			'dependent' => false,
 			'conditions' => '',

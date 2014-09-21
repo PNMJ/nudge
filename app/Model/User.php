@@ -74,8 +74,8 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Suggestion' => array(
-			'className' => 'Suggestion',
+		'Nudge' => array(
+			'className' => 'Nudge',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',

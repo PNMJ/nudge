@@ -3,21 +3,21 @@
 	<div id="the-rest-content ">
 		<?php echo $this->Form->create('Request'); ?>
 			<h1>Select a category</h1>
-			<select name="" class="input-stuff" >
-				<option value="">Option 1</option>
-				<option value="">Option 2</option>
-				<option value="">Option 3</option>
-			</select>
 			
-			<?php foreach($questions as $question){ ?>
-				<?php echo $question['Question']['question']; ?>
-				<?php echo $this->Form->input('question[]'); ?>
+			<?php echo $this->Form->input('category',array('type'=>'select','options'=>$categories, 'class' =>'input-stuff', 'label'=>''));  ?>
+			
+			<br />
+			<?php foreach($questions as $key=>$question){ ?>
+				<h1><?php echo ucfirst($question['Question']['question']); ?></h1>
+				<br />
+				<?php echo $this->Form->input('question_'.$question['Question']['id'], array('class' =>'input-stuff', 'label'=>'', 'placeholder'=>'Type answer here')); ?>
 			<?php } ?>
 			
-			<h1>Sample Question 1</h1>
-			<input type="text" name="question1" value="" class="input-stuff" placeholder="Type answer here">
-			<h1>Sample Question 2</h1>
-			<input type="text" name="" value="" class="input-stuff" placeholder="Type answer here">
+			<br />
+			<br />
+			<br />
+			<?php echo $this->Form->submit('submit', array('class'=>'input-stuff', 'style'=>'width:200px;')) ;?>
+			
 		<?php $this->form->end(); ?>
 	</div>
 </div>
