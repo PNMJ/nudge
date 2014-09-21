@@ -32,5 +32,56 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller
 {
-	public $components = array('RequestHandler');
+	public $components = array(
+		'Auth',
+		'Session',
+		'Cookie',
+		'Paginator',
+		//'Security',
+		'RequestHandler'
+	);
+	
+	public $helpers = array(
+		'Form',
+		'Html',
+		'Session',
+		'Text',
+		'Js'
+	);
+	
+	public function beforeFilter()
+	{
+	    parent::beforeFilter();
+
+		$this->Auth->allow();
+
+		// authorize in the controller
+		$this->Auth->authorize = 'Controller'; 
+	
+		// setup authentication
+		$this->Auth->authenticate = array(
+			'Form' => array(
+				'fields' => array(
+					'username' => 'email',
+					'password' => 'password'
+				),
+				'userModel' => 'User'
+			)
+		);
+		
+		
+		// where to go after login
+		$this->Auth->loginRedirect = '/';
+
+		// where to go after logout
+		$this->Auth->logoutRedirect = '/users/signin';
+
+		// which controller/action handles logins
+		$this->Auth->loginAction = '/users/signin';
+	}
+	
+	public function isAuthorized($user = null)
+    {
+        return true;
+    }
 }

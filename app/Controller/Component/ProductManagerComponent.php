@@ -31,7 +31,7 @@ class ProductManagerComponent extends Component
 		$results = '';
 		$products = array();
 		
-		if(!is_array($resp->searchResult->item)){
+		if(empty($resp->searchResult->item)){
 			return array();
 		}
 		

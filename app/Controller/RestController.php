@@ -6,7 +6,7 @@ class RestController extends AppController
 {
 	public function api_index()
     {
-    	$this->{$this->modelClass}->recursive = 0;
+    	//$this->{$this->modelClass}->recursive = 0;
     
 		$name = Inflector::pluralize($this->modelKey);
     
