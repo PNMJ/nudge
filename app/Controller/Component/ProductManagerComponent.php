@@ -4,19 +4,17 @@ App::uses('Component', 'Controller');
 
 class ProductManagerComponent extends Component
 {
-	const APPID = 'JohnBlum-7b5c-4253-8e84-43ead7c00efb';
 
     public function getProductsWithCategory($category = '')
-    {
-		$url = "http://open.api.ebay.com/shopping?";
+    {$url = "http://open.api.ebay.com/shopping?";
 		$maxents = 20;
-		$appid = self::APPID;
+		$appid = 'JohnBlum-7b5c-4253-8e84-43ead7c00efb';
 
 		//nabbed from the tut
 		$endpoint = 'http://svcs.ebay.com/services/search/FindingService/v1';
 		$version = '1.0.0';
 		$globalid = 'EBAY-US';
-		$query = $category;
+		$query = 'shirts'; //change shirts to categories
 		$safequery = urlencode($query);
 
 		$apicall = "$endpoint?";
@@ -34,19 +32,19 @@ class ProductManagerComponent extends Component
 		if(empty($resp->searchResult->item)){
 			return array();
 		}
-
+		$the_array[] = [];
 		foreach($resp->searchResult->item as $item) {
 			$pic   = $item->galleryURL;
 			$link  = $item->viewItemURL;
 			$title = $item->title;
             $id = $item->itemID;
 
-            $return[] = $item;
 			$products[] = $item;
-			//$results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td></tr>";
+			$obj = array("pic"=>$pic, 'link'=>$link, 'title'=>$title, 'id'=>$id );
+			
+			$the_array[] = $obj;
 		}
-		
-		return $products;
+		return($the_array);
     }
 
     public function getProductUrl() {
