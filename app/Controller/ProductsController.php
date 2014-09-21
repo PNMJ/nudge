@@ -17,5 +17,7 @@ class ProductsController extends RestController
 	    $products = $this->ProductManager->getProductsWithCategory($category);
 
 	    debug($products);
+	    
+	    exit;
     }
 }

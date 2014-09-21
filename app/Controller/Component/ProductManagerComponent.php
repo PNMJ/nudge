@@ -45,6 +45,8 @@ class ProductManagerComponent extends Component
 			$products[] = $item;
 			//$results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td></tr>";
 		}
+		
+		return $products;
     }
 
     public function getProductUrl() {
