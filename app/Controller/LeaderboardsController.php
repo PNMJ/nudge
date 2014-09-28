@@ -38,6 +38,8 @@ class LeaderboardsController extends RestController
 			$leaderboard[$user['User']['name']] = $score;
 		}
 		
+		arsort($leaderboard);
+		
 		$this->set(compact('leaderboard'));
     }
     

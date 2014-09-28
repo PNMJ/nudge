@@ -17,7 +17,7 @@
 			
 	<?php foreach($products as $product){ ?>
 	<div class="reccomendation-option">
-		<a href="/nudges/give/4/<?php echo urlencode($product['uuid']); ?>">
+		<a href="/nudges/give/<?php echo $request['Request']['id']; ?>/<?php echo urlencode($product['uuid']); ?>">
 			<img src="<?php echo $product['imageURL']; ?>">
 			<?php echo $this->Text->truncate($product['name'], 40); ?>
 		</a>

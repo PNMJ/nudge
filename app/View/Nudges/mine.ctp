@@ -17,9 +17,9 @@
 				<div class="request">
 					<h2><?php echo $nudge['Product']['name'] ?></h2>
 					<p>
-					<?php foreach($nudge['Request']['Question'] as $question){ ?>
+					<?php if(isset($nudge['Request']['Question'])){foreach($nudge['Request']['Question'] as $question){ ?>
 					<?php echo ucfirst($question['question']); ?><br />
-					<?php } ?>
+					<?php }} ?>
 					</p>
 				</div>
 			</div>

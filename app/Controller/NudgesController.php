@@ -87,8 +87,7 @@ class NudgesController extends RestController
 		// get all nudges for the request
 		$nudges = $this->Nudge->find('all', array(
 			'conditions' => array(
-				'request_id' => $request_id,
-				'Nudge.user_id' => $this->Auth->user('id')
+				'request_id' => $request_id
 			)
 		));
 		$this->set(compact('nudges'));

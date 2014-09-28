@@ -46,7 +46,8 @@ class ProductManagerComponent extends Component
 		return $products;
     }
 
-    public function getProductUrl() {
+    public function getProductUrl()
+    {
 
     }
 

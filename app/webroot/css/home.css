@@ -13,7 +13,7 @@ a, h2, h1, h3, p{
 #sidebar{
 	position: fixed;
 	height:100%;
-	width:25%;
+	width:24%;
 	background-color: #1B1D28;
 	display:inline-block;
 }
